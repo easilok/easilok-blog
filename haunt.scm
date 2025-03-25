@@ -5,9 +5,15 @@
              (haunt builder atom)
              (haunt builder assets)
              (haunt builder redirects)
-             (haunt reader commonmark))
+             (haunt reader commonmark)
+             (haunt publisher rsync))
 
 (define blog-prefix "blog")
+
+(define (production)
+  (rsync-publisher
+    #:destination "docker/easilok-blog/dist"
+    #:host "production-blog"))
 
 (define (easilok-blog)
   (blog #:prefix blog-prefix
@@ -28,4 +34,5 @@
                        (static-directory "assets")
                        (atom-feed)
                        (atom-feeds-by-tag)
-                       (easilok-redirects)))
+                       (easilok-redirects))
+      #:publishers (list (production)))
