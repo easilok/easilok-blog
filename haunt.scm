@@ -15,8 +15,44 @@
     #:destination "docker/easilok-blog/dist"
     #:host "production-blog"))
 
+;;; Partials
+(define easilok-header
+  `(header (h1 (a (@ (href "/")) "Luís Pereira (easilok)"))
+         (p "Sharing my learning journey on several technological topics.")))
+
+(define easilok-main-theme
+  (theme #:name "easilok-main"
+         #:layout
+         (lambda (site title body)
+           `((doctype "html")
+             (head
+              (meta (@ (charset "utf-8")))
+              (title ,(if title
+                          (string-append title " :: easilok.dev")
+                          (site-title site)))
+              ;; css
+              (link (@ (rel "stylesheet")
+                       (href "/assets/css/main.css")))
+             (body
+               ,easilok-header
+               (hr (@ (class "separator")))
+              (div (@ (class "main-content"))
+                   ,body)
+              ;; Footer for the Craftering webring links
+              (footer
+                (hr)
+                (p (em "Checkout the content from the  other "
+                       (a (@ (href "https://systemcrafters.net") (target "_blank"))
+                          "System Crafters") " webring members:"))
+                (div (@ (class "craftering"))
+                     (a (@ (href "https://craftering.systemcrafters.net/@easilok/previous")) "←")
+                     (a (@ (href "https://craftering.systemcrafters.net/")) "craftering")
+                     (a (@ (href "https://craftering.systemcrafters.net/@easilok/next")) "→")))))))))
+
+
 (define (easilok-blog)
-  (blog #:prefix blog-prefix
+  (blog #:theme easilok-main-theme
+        #:prefix blog-prefix
         #:collections `(("Recent Posts" "blog.html" ,posts/reverse-chronological))))
 
 (define (easilok-redirects)
