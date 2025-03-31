@@ -115,7 +115,7 @@ mkdir -p $HOME/.guix-extra-profiles/development
 ```
 
 As any other workflow, this could be automatized, so I created (or practically steal it from
-[benoitj](https//benoitj.ca) from System Crafters) a script that:
+[benoitj](https://blog.benoitj.ca/) from System Crafters) a script that:
 
 - Called without any arguments will search for all manifest files in `$HOME/.config/.guix/manifests` and activate a
   profile based on the file name, installing or updating all specified dependencies.
@@ -175,3 +175,13 @@ for profile in $profiles; do
 done
 
 ```
+
+
+### Conclusions
+
+With this approach I now have a functional guix setup, at least as package manager on any Linux distro, where I can
+group packages in manifest files and reuse them as needed in different computers, and started using it already on my
+work computer and remote development server.
+
+Next step will be to include [home configuration](https://guix.gnu.org/manual/en/html_node/Home-Configuration.html) in
+my setup and migrate at least some of my personal configurations to it.
