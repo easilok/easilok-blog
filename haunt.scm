@@ -32,6 +32,8 @@
                           (site-title site)))
               ;; css
               (link (@ (rel "stylesheet")
+                       (href "/assets/css/normalize-801.css")))
+              (link (@ (rel "stylesheet")
                        (href "/assets/css/main.css")))
              (body
                ,easilok-header
