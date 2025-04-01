@@ -53,12 +53,7 @@
 (define (easilok-blog)
   (blog #:theme easilok-main-theme
         #:prefix blog-prefix
-        #:collections `(("Recent Posts" "blog.html" ,posts/reverse-chronological))))
-
-(define (easilok-redirects)
-  (redirects `(("/index.html" "/blog.html")
-               (,(string-append blog-prefix "/index.html") "/blog.html"))))
-
+        #:collections `(("Recent Posts" "index.html" ,posts/reverse-chronological))))
 
 (site #:title "Easilok Blog"
       #:domain "luispereira.dev"
@@ -69,6 +64,5 @@
       #:builders (list (easilok-blog)
                        (static-directory "assets")
                        (atom-feed)
-                       (atom-feeds-by-tag)
-                       (easilok-redirects))
+                       (atom-feeds-by-tag))
       #:publishers (list (production)))
