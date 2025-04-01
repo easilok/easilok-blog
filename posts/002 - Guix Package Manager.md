@@ -111,7 +111,7 @@ example previous presented (the inner folder with the same name is required):
 
 ```bash
 mkdir -p $HOME/.guix-extra-profiles/development
-    guix package --manifest=development.scm --profile=$HOME/.guix-extra-profiles/development/development 
+guix package --manifest=development.scm --profile=$HOME/.guix-extra-profiles/development/development 
 ```
 
 As any other workflow, this could be automatized, so I created (or practically steal it from
