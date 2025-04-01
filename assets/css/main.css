@@ -1,8 +1,32 @@
+:root {
+  --main-bg-color: #030720;
+  /* --secondary-bg-color: #2f3f58; */
+  /* --secondary-bg-color: #070c30; */
+  --secondary-bg-color: #040a2d;
+  --main-text-color: rgb(203, 213, 224);
+  --link-main-color: #bbd5ba;
+  --link-main-hover-color: rgb(203, 213, 224);
+  --code-inline-color: #f7873f;
+  --code-block-bg-color: #232629;
+  --tag-badge-bg-color: #55565b;
+  --tag-badge-text-color: #bbd5ba;
+  --code-block-text-color: #cccccc;
+  --code-font-style: Consolas, "Liberation Mono", "Courier New", monospace;
+  --main-font-style: Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     width: 95%;
     margin: auto;
-    background-color: rgb(26, 32, 44);
-    color: rgb(203, 213, 224);
+    background-color: var(--main-bg-color);
+    color: var(--main-text-color);
+    font-family: var(--main-font-style);
+    padding: 0 1rem;
+    max-width: 1280px;
 }
 
 header {
@@ -22,11 +46,109 @@ header p {
 
 header a {
     text-decoration: none;
-    color: rgb(203, 213, 224);
+    color: var(--main-text-color);
+}
+
+a {
+    cursor: pointer;
+    text-underline-offset: 0.15rem;
 }
 
 header a:hover {
     text-decoration: underline;
+}
+
+.main-content {
+    margin-top: 4rem;
+    letter-spacing: 0.015rem;
+}
+
+.main-content p {
+    line-height: 1.5rem;
+    letter-spacing: 0.015rem;
+}
+
+.main-content a {
+    font-style: italic;
+    color: var(--link-main-color);
+    font-style: bold;
+}
+
+.main-content a:hover {
+    color: var(--link-main-hover-color);
+}
+
+.main-content code {
+    background: var(--code-block-bg-color);
+    color: var(--code-inline-color);
+    font-style: italic;
+    margin: 0 .1rem;
+    font-family: var(--code-font-style);
+    font-size: .9rem;
+    padding: 0.1rem .25rem;
+}
+
+.main-content pre {
+    background: var(--code-block-bg-color);
+    color: var(--code-block-text-color);
+    padding: 1rem;
+    overflow: auto;
+    font-family: var(--code-font-style);
+    font-size: 1rem;
+}
+
+.main-content pre code {
+    color: var(--code-block-text-color);
+    margin: 0;
+    padding: 0;
+}
+
+.main-content li {
+    margin: 0;
+}
+
+.post__date,
+.post__tags,
+.feed__post-date,
+.feed__post-tags {
+    font-style: italic;
+    display: block;
+    font-size: 1rem;
+    margin-bottom: .5rem;
+}
+
+.tag-badge {
+    background-color: var(--tag-badge-bg-color);
+    /* border: 1px solid #404040; */
+    color: var(--tag-badge-text-color);
+    padding: .2rem 0.5rem;
+    border-radius: 10px;
+    margin-right: .5rem;
+    font-size: .8rem;
+}
+
+.post__content {
+    font-size: 1.125rem;
+}
+
+.feed__post {
+    border-radius: 8px;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    background-color: var(--secondary-bg-color);
+    box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 29px 0px;
+}
+
+.feed__post h2 {
+    margin-top: 0;
+}
+
+.feed__post h2 a {
+    color: var(--main-text-color);
+}
+
+.feed__post h2 a:hover {
+    color: var(--link-main-color);
 }
 
 footer {
@@ -36,12 +158,12 @@ footer {
 
 footer p {
     text-align: center;
-    font-size: .9rem;
+    font-size: .95rem;
     margin: 0.5rem 0;
 }
 
 footer .craftering {
-    font-size: .9rem;
+    font-size: .95rem;
     margin: auto;
     width: 50%;
     text-align: center;
@@ -49,4 +171,18 @@ footer .craftering {
 
 footer .craftering > * {
     margin: 0 0.25rem;
+}
+
+footer a {
+    color: var(--link-main-color);
+    font-style: bold;
+}
+
+footer a:hover {
+    color: gold;
+}
+
+footer .copyright {
+    font-size: .8rem;
+    color: #ababab;
 }
