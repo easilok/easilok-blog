@@ -57,6 +57,17 @@ header a:hover {
     text-decoration: underline;
 }
 
+blockquote {
+    border-left: 2px solid var(--link-main-hover-color);
+    color: var(--code-block-text-color);
+    margin: 0;
+    padding: .5rem 1.5rem;
+}
+
+blockquote p {
+    margin: 0;
+}
+
 .main-content {
     margin-top: 4rem;
     letter-spacing: 0.015rem;
@@ -130,12 +141,26 @@ header a:hover {
     font-size: 1.125rem;
 }
 
+/* .feed { */
+/*     display: block; */
+/* } */
+
+@media (width >= 1280px) {
+    .feed {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1rem;
+    }
+}
+    
 .feed__post {
     border-radius: 8px;
     padding: 1rem;
     margin-bottom: 1rem;
     background-color: var(--secondary-bg-color);
     box-shadow: rgba(0, 0, 0, 0.8) 0px 7px 29px 0px;
+    display: flex;
+    flex-direction: column;
 }
 
 .feed__post h2 {
@@ -148,6 +173,10 @@ header a:hover {
 
 .feed__post h2 a:hover {
     color: var(--link-main-color);
+}
+
+.feed__post-summary {
+    flex-grow: 1;
 }
 
 footer {
