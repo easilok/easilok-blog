@@ -129,6 +129,6 @@
       #:build-directory "dist"
       #:builders (list (easilok-blog)
                        (static-directory "assets")
-                       (atom-feed)
-                       (atom-feeds-by-tag))
+                       (atom-feed #:blog-prefix (string-append "/" blog-prefix))
+                       (atom-feeds-by-tag #:blog-prefix (string-append "/" blog-prefix)))
       #:publishers (list (production)))
