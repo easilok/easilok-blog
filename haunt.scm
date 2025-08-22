@@ -128,6 +128,8 @@
       #:readers (list commonmark-reader)
       #:build-directory "dist"
       #:builders (list (easilok-blog)
+                       (redirects `((,(string-append "/" blog-prefix "/index.html")
+                                     "/")))
                        (static-directory "assets")
                        (atom-feed #:blog-prefix (string-append "/" blog-prefix))
                        (atom-feeds-by-tag #:blog-prefix (string-append "/" blog-prefix)))
